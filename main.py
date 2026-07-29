@@ -133,7 +133,9 @@ async def telegram_webhook(request: Request):
 @app.on_event("startup")
 async def startup_event():
     webhook_url = f"{PUBLIC_URL}/webhook/{TELEGRAM_TOKEN}"
-    url = f"[https://api.telegram.org/bot](https://api.telegram.org/bot){TELEGRAM_TOKEN}/setWebhook?url={webhook_url}"
+    # Make sure the next line starts exactly with https://
+    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/setWebhook?url={webhook_url}"
+    
     async with httpx.AsyncClient() as http_client:
         await http_client.get(url)
         print(f"Webhook set to: {webhook_url}")

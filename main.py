@@ -117,7 +117,8 @@ async def telegram_webhook(request: Request):
         write_log(run_id, "final_response_sent", final_output)
         
         # 4. Send back to Telegram
-send_url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"        payload = {
+        send_url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+        payload = {
             "chat_id": chat_id,
             "text": json.dumps(final_output) # Send the required JSON as text
         }

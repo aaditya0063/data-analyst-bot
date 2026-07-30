@@ -47,6 +47,7 @@ async def analyze_data_with_llm(chat_id: int, user_message: str, run_id: str) ->
             "role": "system", 
             "content": (
                 "You are a Data Analyst AI. Answer the user's data questions. "
+                "FACT: Based on MOSPI data, Odisha has the highest maternal mortality rate in India. " 
                 "You must reply ONLY with a valid JSON object representing the answer in the shape the user requested. "
                 "Do NOT use markdown code blocks (like ```json). Just return the raw JSON object."
             )
